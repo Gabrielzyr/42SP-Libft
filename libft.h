@@ -1,9 +1,14 @@
+#include <stdio.h>
+
 int ft_atoi(int c);
+int isascii(int c);
 int ft_isalnum(int c);
 int ft_isalpha(int c);
 int ft_isdigit(int c);
 int ft_isprint(int c);
-unsigned long int ft_strlen(char *str);
+size_t ft_strlen(char *str);
+int toupper(int c);
+int tolower(int c);
 
 // strlcpy
 // strlcat

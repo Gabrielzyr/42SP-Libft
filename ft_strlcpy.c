@@ -1,18 +1,25 @@
-unsigned long int ft_strlcpy(char *dst, const char *src, unsigned long int size)
-{
-  unsigned long int i;
+#include <stdio.h>
+#include "libft.h"
 
+size_t ft_strlcpy(char *dst, const char *src, size_t size)
+{
+  	size_t i;
+  	size_t src_len;
+	
+	src_len = ft_strlen((char *)src);
     i = 0;
-    while (i < size - 1 && src[i])
-    {
-      dst[i] = src[i];
-      i++;
-    }
-    dst[i] = '\0';
-    return (size);
+	if (size > 0)
+	{
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+    	dst[i] = '\0';
+	}
+    return (src_len);
 }
 
-// #include <stdio.h>
 // #include <stdlib.h>
 // #include <bsd/string.h>
 // #include <string.h>
@@ -21,14 +28,15 @@ unsigned long int ft_strlcpy(char *dst, const char *src, unsigned long int size)
 // {
 //     char *dst;
 //     char *src;
+// 	int res;
 
-// 	dst = calloc(10, sizeof(char));
+// 	dst = calloc(0, sizeof(0));
 //     src = calloc(16, sizeof(char));
 //     src = "Mundo bem grande";
-//     printf("src: %s | dest: %s", src, dst);
-//     ft_strlcpy(dst, src, sizeof(src));
-//     // strlcpy(dst, src, sizeof(src));
 //     printf("\nsrc: %s | dest: %s", src, dst);
+//     res = ft_strlcpy(dst, src, 0);
+//     // res = strlcpy(dst, src, 0);
+//     printf("\nsrc: %s | dest: %s | res: %d", src, dst, res);
 //     return (0);
 // }
 
