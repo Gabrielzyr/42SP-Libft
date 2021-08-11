@@ -1,4 +1,4 @@
-SRCS = ft_isalnum.c ft_isprint.c ft_atoi.c ft_isdigit.c ft_isalpha.c ft_strlen.c
+SRCS = ft_isalnum.c ft_isprint.c ft_atoi.c ft_isdigit.c ft_isalpha.c ft_strlen.c ft_strlcpy.c ft_strlcat.c
 
 OBJS = ${SRCS:.c=.o}
 
