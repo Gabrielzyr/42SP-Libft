@@ -9,12 +9,12 @@ char *ft_strchr(const char *s, int c)
 	{   
 		if(c == s[i])
 		{   
-			find = (char*)&s[i];
+			find = (char *)&s[i];
 			return(find);
 		}
     	i++;
 	}
 	if(c == '\0')
-		find = (char*)&s[i];
+		find = (char *)&s[i];
 	return(find);
 }
