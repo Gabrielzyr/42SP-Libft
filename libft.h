@@ -9,16 +9,11 @@ int ft_isprint(int c);
 size_t ft_strlen(char *str);
 int toupper(int c);
 int tolower(int c);
+char *strdup(const char *s);
+int strncmp(const char *s1, const char *s2, size_t n);
 
-// strlcpy
-// strlcat
 // strchr
-// strncmp
 // strnstr
-// strdup
-
-// toupper
-// tolower
 // strrchr
 // memchr
 // memcmp
