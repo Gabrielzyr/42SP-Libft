@@ -1,17 +1,20 @@
 char *ft_strchr(const char *s, int c)
 {
-	char *find;
-	int i;
+	char	*find;
+	int		i;
 
+	find = 0;
 	i = 0;
-	while (s[i])
-	{
-		if (c == s[i])
-		{
-			*find = s[i];
-			return (find);
+    while(s[i])
+	{   
+		if(c == s[i])
+		{   
+			find = (char*)&s[i];
+			return(find);
 		}
-		i++;
+    	i++;
 	}
-	return (NULL);
+	if(c == '\0')
+		find = (char*)&s[i];
+	return(find);
 }
