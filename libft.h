@@ -1,4 +1,7 @@
-#include <stdio.h>
+#ifndef LIBFT_H
+# define LIBFT_H
+#include <stdlib.h>
+#include <unistd.h>
 
 int ft_atoi(int c);
 int ft_isascii(int c);
@@ -9,15 +12,14 @@ int ft_isprint(int c);
 size_t ft_strlen(const char *str);
 int ft_toupper(int c);
 int ft_tolower(int c);
+void *ft_memset(void *s, int c, size_t n);
 char *ft_strdup(const char *s);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
 
 
-// strchr
 // strnstr
-// strrchr
 // memchr
 // memcmp
 // memset
@@ -26,5 +28,5 @@ char *ft_strrchr(const char *s, int c);
 // memmove
 
 // calloc
-
+#endif
 // ar -crs libft.a ft_atoi.o ft_isalnum.o ft_isalpha.o ft_isdigit.o ft_isprint.o ft_strlen.o
