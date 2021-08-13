@@ -1,38 +1,31 @@
 #include "libft.h"
 
-void *ft_memchr(const void *s, int c, size_t n)
-{
+void*ft_memchr(const void *s, int c, size_t n)
+{   
 	unsigned char *new_s;
-	unsigned char *find;
-	size_t i;
 
-	new_s = (void *)s;
-	i = 0;
-	find = 0;
-	while (new_s[i] && i < n)
-	{
-		if (new_s[i] == c)
-		{
-			find = &new_s[i];
-			return (find);
-		}
-		i++;
+	new_s = (unsigned char *)s;
+	while(n--)
+	{   
+		if(*new_s == (unsigned char)c)
+			return(new_s);
+		new_s++;
 	}
-
-	return (find);
+	return(0);
 }
 
-#include <stdio.h>
-#include <string.h>
 
-int main () {
-   const char str[] = "http://www.tutorialspoint.com";
-   const char ch = '.';
-   unsigned char *ret;
+// #include <stdio.h>
+// #include <string.h>
 
-   ret = ft_memchr(str, (int)ch, 13);
+// int main () {
+//    const char str[] = "http://www.tutorialspoint.com";
+//    const char ch = '.';
+//    unsigned char *ret;
 
-   printf("String after |%c| is - |%s|\n", ch, ret);
+//    ret = memchr(str, (int)ch, 13);
+
+//    printf("String after |%c| is - |%s|\n", ch, ret);
    
-   return(0);
-}
+//    return(0);
+// }

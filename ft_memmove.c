@@ -3,7 +3,7 @@
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char *new_dest;
-	const char *new_src;
+	unsigned char *new_src;
 	
 	if (!dest && !src)
 		return (0);
