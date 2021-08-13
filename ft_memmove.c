@@ -9,7 +9,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		return (0);
 	new_dest = dest;
 	new_src = (void *)src;
-	if (ft_strncmp((char *)new_dest, (char *)new_src, ft_strlen(new_src)) < 0)
+	if (new_dest > new_src)
 	{
 		while (n--)
 			new_dest[n] = new_src[n];
