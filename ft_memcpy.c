@@ -6,6 +6,8 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 	unsigned char *z;
 	size_t i;
 
+	if (!dest && !src)
+		return (0);
 	j = dest;
 	z = (void *)src;
 	i = 0;
@@ -22,12 +24,14 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 // #include <string.h>
 
 // int main () {
-//    const char src[50] = "http://www.tutorialspoint.com";
-//    char dest[50];
-//    strcpy(dest,"Heloooo!!");
-//    printf("Before memcpy dest = %s\n", dest);
-//    ft_memcpy(dest, src, strlen(src)+1);
-//    printf("After memcpy dest = %s\n", dest);
+// //    const char src[50] = "http://www.tutorialspoint.com";
+// //    const char src[1] = "";
+// //    char dest[1];
+// //    strcpy(dest,"Heloooo!!");
+// //    printf("Before memcpy dest = %s\n", dest);
+// 	ft_memcpy(0, 0, 3);
+// 	memcpy(0, 0, 3);
+// //    printf("After memcpy dest = %s\n", dest);
    
 //    return(0);
 // }

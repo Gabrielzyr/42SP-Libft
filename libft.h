@@ -17,14 +17,15 @@ char *ft_strdup(const char *s);
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 char *ft_strchr(const char *s, int c);
 char *ft_strrchr(const char *s, int c);
+size_t ft_strlcpy(char *dst, const char *src, size_t size);
 void ft_bzero(void *s, size_t n);
 void *ft_memcpy(void *dest, const void *src, size_t n);
+void *ft_memmove(void *dest, const void *src, size_t n);
 
 // strnstr
 // memchr
 // memcmp
-// memmove
-
 // calloc
+
 #endif
 // ar -crs libft.a ft_atoi.o ft_isalnum.o ft_isalpha.o ft_isdigit.o ft_isprint.o ft_strlen.o
