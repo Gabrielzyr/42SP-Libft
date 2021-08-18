@@ -9,6 +9,7 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 		return (0);
 	new_s1 = (unsigned char *)s1;
 	new_s2 = (unsigned char *)s2;
+	n -= 1;
 	while (n-- && new_s1 && new_s2)
 	{
 		if (*new_s1 != *new_s2)
