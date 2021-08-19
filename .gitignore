@@ -3,3 +3,4 @@ a.out
 *.o
 libft.a
 pt1-2
+.vscode

@@ -8,7 +8,7 @@ static int	ft_getnbrsize(long long int n)
 	if (n < 0)
 	{
 		n *= -1;
-		i++;
+		i = 1;
 	}
 	while (n > 9)
 	{
@@ -40,7 +40,7 @@ char	*ft_itoa(int n)
 	int		size;
 
 	size = ft_getnbrsize(n);
-	str = malloc(size + 1);
+	str = ft_calloc(size + 1, 1);
 	if (!str)
 		return (0);
 	if (n < 0)
