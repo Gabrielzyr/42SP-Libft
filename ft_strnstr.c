@@ -26,19 +26,19 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	return (0);
 }
 
-#include <stdio.h>
-#include <bsd/string.h>
-#include <string.h>
+// #include <stdio.h>
+// #include <bsd/string.h>
+// #include <string.h>
 
-int main()
-{
-	char *big = "String grande aqui";
-	char *little = "grande";
-	char *find;
-			// printf("%c\n", big[4]);
+// int main()
+// {
+// 	char *big = "String grande aqui";
+// 	char *little = "grande";
+// 	char *find;
+// 			// printf("%c\n", big[4]);
 
-	find = ft_strnstr(big, little, 15);
-	// find = (char *)strnstr(big, little, 15);
-	printf("big: %s | little: %s | find: %s", big, little, find);
-	return (0);
-}
+// 	find = ft_strnstr(big, little, 15);
+// 	// find = (char *)strnstr(big, little, 15);
+// 	printf("big: %s | little: %s | find: %s", big, little, find);
+// 	return (0);
+// }
