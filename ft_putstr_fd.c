@@ -3,11 +3,11 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (s)
-	{
-		ft_putchar_fd(*s, fd);
-		while (*s++)
+		while (*s)
+		{
 			ft_putchar_fd(*s, fd);
-	}
+			s++;
+		}
 }
 
 // int main()
