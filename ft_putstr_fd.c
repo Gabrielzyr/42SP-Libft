@@ -2,9 +2,12 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	ft_putchar_fd(*s, fd);
-	while (*s++)
+	if (s)
+	{
 		ft_putchar_fd(*s, fd);
+		while (*s++)
+			ft_putchar_fd(*s, fd);
+	}
 }
 
 // int main()

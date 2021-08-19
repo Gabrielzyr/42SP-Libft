@@ -10,7 +10,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst_len = ft_strlen(dst);
 	src_len = ft_strlen(src);
 	i = 0;
-	if (dstsize == 0 || dst_len > dstsize)
+	if (dstsize <= 0 || dst_len > dstsize)
 		return (dstsize + src_len);
 	while (i < (dstsize - 1 - dst_len) && src[i])
 	{
@@ -26,6 +26,27 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // #include <stdlib.h>
 // #include <bsd/string.h>
 // #include <string.h>
+
+// int main ()
+// {
+	
+// 	char dst[30]; memset(dst, 0, 30);
+// 	char * src = (char *)"AAAAAAAAA";
+// 	int res;
+// 	int cmp;
+
+// 	memset(dst, 'C', 5);
+
+//     printf("src: %s | dest: %s", src, dst);
+//     // res = ft_strlcat(dst, src, -1);
+//     res = strlcat(dst, src, -1);
+// 	cmp = strcmp(dst, "CCCCCAAAAAAAAA");
+
+//     printf("\nsrc: %s | dest: %s | res: %d | cmp: %d", src, dst, res, cmp);
+//     return (0);
+// }
+
+
 
 // // // int main ()
 // // // {
@@ -43,8 +64,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // // //     printf("\nsrc: %s | dest: %s | res: %d", src, dst, res);
 // // //     return (0);
 // // // }
-
-
 
 // #define		STRING_1	"the cake is a lie !\0I'm hidden lol\r\n"
 // #define		STRING_4	"phrase differente pour le test"
