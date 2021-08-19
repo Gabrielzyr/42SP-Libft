@@ -1,7 +1,6 @@
 #include "libft.h"
-#include <stdio.h>
 
-static int	ft_getnbrsize(int n)
+static int	ft_getnbrsize(long long int n)
 {
 	int	i;
 
@@ -11,7 +10,7 @@ static int	ft_getnbrsize(int n)
 		n *= -1;
 		i++;
 	}
-	while (n > 10)
+	while (n > 9)
 	{
 		n = n / 10;
 		i++;
@@ -20,31 +19,42 @@ static int	ft_getnbrsize(int n)
 	return (i);
 }
 
+static char	*ft_fillstr(char *str, int n, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < (size))
+	{
+		if (str[(size - i) - 1] != '-')
+			str[(size - i) - 1] = (n % 10) + '0';
+		n = (n / 10);
+		i++;
+	}
+	return (str);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*str;
 	int		size;
-	int		i;
 
 	size = ft_getnbrsize(n);
-	str = malloc(size);
+	str = malloc(size + 1);
 	if (!str)
 		return (0);
-	i = 0;
-	while (i < size)
+	if (n < 0)
 	{
-		if (n < 0)
+		str[0] = '-';
+		if (n == -2147483648)
 		{
-			str[i] = '-';
-			n *= -1;
+			str[size - 1] = '8';
+			n = n / 10;
+			size -= 1;
 		}
-		else
-		{
-			str[i] = (n % 10) + '0';
-			n = (n / 10);
-		}
-		i++;
+		n *= -1;
 	}
+	ft_fillstr(str, n, size);
 	return (str);
 }
 
@@ -53,7 +63,7 @@ char	*ft_itoa(int n)
 // {
 // 	char *str;
 
-// 	str = ft_itoa(-545);
+// 	str = ft_itoa(-2147483648);
 // 	printf("str: %s", str);
 // 	return (0);
 // }
