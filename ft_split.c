@@ -58,16 +58,12 @@ static char	**ft_fill(char **new_str, char const *s, size_t words, char c)
 		{
 			st = ft_getwordlen((char *)s + j, c);
 			j += st;
-			new_str[i] = ft_calloc((st + 1), sizeof(char));
-			if (!new_str[i])
-				return (0);
-			ft_strlcpy(new_str[i], (char *)s + (j - st), st + 1);
+			new_str[i] = ft_substr(s, (j - st), st);
 			i++;
 		}
 		else
 			j++;
 	}
-	new_str[i] = 0;
 	return (new_str);
 }
 
@@ -81,7 +77,7 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	words = 0;
 	words = ft_count_words(s, c);
-	new_str = malloc((words + 1) * sizeof(char *));
+	new_str =ft_calloc((words + 1),  sizeof(char *));
 	if (!new_str)
 	{
 		free(new_str);
