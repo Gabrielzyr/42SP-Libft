@@ -67,32 +67,27 @@ static char	**ft_fill(char **new_str, char const *s, size_t words, char c)
 		else
 			j++;
 	}
+	new_str[i] = 0;
 	return (new_str);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**new_str;
-	size_t	i;
+	// size_t	i;
 	size_t	words;
 
 	if (!s)
 		return (0);
 	words = 0;
 	words = ft_count_words(s, c);
-	new_str = ft_calloc((words + 1), sizeof(char *));
-	ft_fill(new_str, s, words, c);
+	new_str = malloc((words + 1) * sizeof(char *));
 	if (!new_str)
 	{
-		i = 0;
-		while (i < words)
-		{
-			free(new_str[i]);
-			i++;
-		}
 		free(new_str);
 		return (0);
 	}
+	ft_fill(new_str, s, words, c);
 	return (new_str);
 }
 
@@ -107,10 +102,10 @@ char	**ft_split(char const *s, char c)
 // 	int i;
 
 // 	i = 0;
-// 	if (!ptr)
-// 		printf("a");
-// 	else
-// 		printf("\nb");
+// 	// if (!ptr)
+// 	// 	printf("a");
+// 	// else
+// 	// 	printf("\nb");
 // 	// printf("result: %zu\n", ft_strlen(*ptr));
 // 	// while (ptr[i] != 0)
 // 	// {
@@ -118,7 +113,7 @@ char	**ft_split(char const *s, char c)
 // 	// 	printf("%zu\n", ft_strlen(ptr[i]));
 // 	// 	i++;
 // 	// }
-// 	printf("\n%s", ptr[0]);
+// 	printf("%s", ptr[0]);
 // 	printf("\n%s", ptr[1]);
 // 	printf("\n%s", ptr[2]);
 // 	printf("\n%s", ptr[3]);
