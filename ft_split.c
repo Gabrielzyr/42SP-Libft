@@ -22,32 +22,24 @@ static size_t ft_count_words(char const *s, char c)
 	return (count);
 }
 
-static char *ft_fillstr( char *dest, char *src, size_t len)
+static char *ft_fillstr(char *dest, char *src, size_t len)
 {
-	dest = ft_calloc ((len + 1), sizeof(char));
+	dest = ft_calloc((len + 1), sizeof(char));
 	if (!dest || !src)
-		return(0);
-	ft_strlcpy(dest, src, len+1);
+		return (0);
+	ft_strlcpy(dest, src, len + 1);
 	return (dest);
 }
 
-char	**ft_split(char const *s, char c)
+static char **ft_fill(char **new_str, char const *s, size_t words, char c)
 {
-	char	**new_str;
 	int c_tmp;
 	size_t i;
 	size_t st;
-	size_t 	j;
-	size_t	words;
+	size_t j;
 
 	i = 0;
-	words = 0;
-	words = ft_count_words(s, c);
 	c_tmp = 0;
-	new_str = ft_calloc((words + 1), sizeof(char *));
-	if (!s)
-		return (0);
-	i = 0;
 	st = 0;
 	while (i < words)
 	{
@@ -55,12 +47,12 @@ char	**ft_split(char const *s, char c)
 		st = 0;
 		while (j < ft_strlen((char *)s) + 1)
 		{
-			if ((char )s[j] != c && (char )s[j] != '\0')
+			if ((char)s[j] != c && (char)s[j] != '\0')
 			{
 				c_tmp = 1;
 				st++;
 			}
-			else if (((char )s[j] == c && c_tmp != 0) || ((char )s[j] == '\0' && c_tmp != 0))
+			else if (((char)s[j] == c && c_tmp != 0) || ((char)s[j] == '\0' && c_tmp != 0))
 			{
 				new_str[i] = ft_fillstr(new_str[i], (char *)s + (j - st), st);
 				st = j;
@@ -71,32 +63,58 @@ char	**ft_split(char const *s, char c)
 		}
 		i++;
 	}
+	return (new_str);
+}
+
+char **ft_split(char const *s, char c)
+{
+	char **new_str;
+	size_t i;
+	size_t words;
+
+	if (!s)
+		return (0);
+	words = 0;
+	words = ft_count_words(s, c);
+	new_str = ft_calloc((words + 1), sizeof(char *));
+	ft_fill(new_str, s, words, c);
+	printf("words: %lu", words);
 	if (!new_str)
 	{
 		i = 0;
 		while (i < words)
 		{
 			free(new_str[i]);
+			i++;
 		}
 		free(new_str);
+		return (0);
 	}
-	i = 0;
 	return (new_str);
 }
 
-// #include <stdio.h>
+#include <stdio.h>
 
-// int main()
-// {
-// 	char **new_str;
+int main(void)
+{
+	// char *str = "1-2-3-4-5-6-7-8--8-8--8-4------4--4";
+	char *str = "      spslit       this for   me  a       ";
+	char sep = ' ';
+	char **ptr = ft_split(str, sep);
+	int i;
 
-// 	new_str = ft_split("tripouille  42  ", ' ');(char *)
-// 	// new_str = ft_split("chinimala", ' ');
-// 	// new_str = ft_split("     ", ' ');
-// 	// new_str = ft_split("", ' ');
-// 	// if (new_str)
-// 	// // printf("ola");
-// 	printf("new_str: %s\n", new_str[0]);
-// 	printf("new_str2: %s\n", new_str[1]);
-// 	return (0);
-// }
+	i = 0;
+	if (!ptr)
+		printf("a");
+	else
+		printf("b");
+	// printf("result: %zu\n", ft_strlen(*ptr));
+	// while (ptr[i] != 0)
+	// {
+	// 	printf("%s", ptr[i]);
+	// 	printf("%zu\n", ft_strlen(ptr[i]));
+	// 	i++;
+	// }
+	// printf("%s", ptr[i]);
+return (0);
+}
