@@ -19,17 +19,23 @@ int	ft_atoi(const char *nptr)
 	{
 		number = (number * 10) + (nptr[i] - '0');
 		i++;
+		if (sign == 1 && number > 2147483647)
+			return (-1);
+		if ( sign == -1 && (number) > 2147483648)
+			return (0);
 	}
-	return (number * sign);
+	return ((int)number * sign);
 }
 
-// #include <stdio.h>
-// #include <stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-// int main()
-// {
+int main()
+{
 //   printf("atoi: %d\nft_atoi: %d", atoi("   +3+4"), ft_atoi("+3+4"));
-//   printf("\natoi: %d\nft_atoi: %d", atoi("   +21474836478"), ft_atoi("   +21474836478"));
-//   printf("\natoi: %d\nft_atoi: %d", atoi("   -21474836488"), ft_atoi("   -21474836488"));
-//   return (0);
-// }
+printf("\natoi: %d\nft_atoi: %d", atoi("   -21474836477"), ft_atoi("   -21474836477"));
+// printf("\natoi: %d\nft_atoi: %d", atoi("   -99999999999999999999999999"), ft_atoi("   -99999999999999999999999999"));
+// //   printf("\natoi: %d\nft_atoi: %d", atoi("-99999999999999999999999999"), ft_atoi("-99999999999999999999999999"));
+//   printf("\natoi: %d\nft_atoi: %d", atoi("99999999999999999999999999"), ft_atoi("99999999999999999999999999"));
+  return (0);
+}

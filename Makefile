@@ -4,7 +4,12 @@ ft_strchr.c ft_strrchr.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memc
 ft_memcmp.c ft_calloc.c ft_strnstr.c ft_putchar_fd.c ft_putstr_fd.c\
 ft_putnbr_fd.c ft_putendl_fd.c ft_itoa.c ft_substr.c ft_strjoin.c ft_strtrim.c\
 ft_split.c ft_strmapi.c ft_striteri.c
-# ft_strnstr.c is the last function from first part
+
+# bonus part
+BONUS = ft_lstnew.c ft_lstadd_front.c
+
+B_OBJS = ${BONUS:.c=.o}
+
 OBJS = ${SRCS:.c=.o}
 
 NAME = libft.a
@@ -15,16 +20,19 @@ CC = clang
 
 CFLAGS = -Wall -Werror -Wextra
 
-# .c.o:
-# 	${CC} ${CFLAGS} ${SRCS}
 
 ${NAME}: ${OBJS} ${HEADRS}
 	ar -crs ${NAME} ${OBJS}
+
+bonus: ${B_OBJS} ${HEADRS}
+	${CC} ${CFLAGS} -c ${BONUS}
+	ar -crs ${NAME} ${B_OBJS}
 
 all: ${NAME}
 
 clean: 
 	rm -f ${OBJS}
+	rm -f ${B_OBJS}
 
 fclean: clean
 	rm -f ${NAME}
