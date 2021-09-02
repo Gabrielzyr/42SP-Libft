@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	ft_count_words(char const *s, char c)
 {
@@ -70,14 +69,13 @@ static char	**ft_fill(char **new_str, char const *s, size_t words, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**new_str;
-	// size_t	i;
 	size_t	words;
 
 	if (!s)
 		return (0);
 	words = 0;
 	words = ft_count_words(s, c);
-	new_str =ft_calloc((words + 1),  sizeof(char *));
+	new_str = ft_calloc((words + 1), sizeof(char *));
 	if (!new_str)
 	{
 		free(new_str);
@@ -86,34 +84,3 @@ char	**ft_split(char const *s, char c)
 	ft_fill(new_str, s, words, c);
 	return (new_str);
 }
-
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	// char *str = "1-2-3-4-5-6-7-8--8-8--8-4------4--4";
-// 	char *str = "      spslit       this for   me  a     !  ";
-// 	char sep = ' ';
-// 	char **ptr = ft_split(str, sep);
-// 	int i;
-
-// 	i = 0;
-// 	// if (!ptr)
-// 	// 	printf("a");
-// 	// else
-// 	// 	printf("\nb");
-// 	// printf("result: %zu\n", ft_strlen(*ptr));
-// 	// while (ptr[i] != 0)
-// 	// {
-// 	// 	printf("%s", ptr[i]);
-// 	// 	printf("%zu\n", ft_strlen(ptr[i]));
-// 	// 	i++;
-// 	// }
-// 	printf("%s", ptr[0]);
-// 	printf("\n%s", ptr[1]);
-// 	printf("\n%s", ptr[2]);
-// 	printf("\n%s", ptr[3]);
-// 	printf("\n%s", ptr[4]);
-// 	printf("\n%s", ptr[5]);
-// 	return (0);
-// }

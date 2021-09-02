@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static size_t	ft_get_start(char const *s1, char const *set)
 {
@@ -58,6 +57,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*new_str;
 	size_t	start;
 	size_t	last;
+
 	if (!s1 || !set)
 		return (0);
 	start = ft_get_start(s1, set);
@@ -76,15 +76,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (new_str);
 	return (0);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *new_str;
-
-// 	// new_str = ft_strtrim(" a Hello Great Word oa", " oa");
-// 	new_str = ft_strtrim("   xxx   xxx", " x");
-// 	printf("new_str: %s", new_str);
-// 	return (0);
-// }

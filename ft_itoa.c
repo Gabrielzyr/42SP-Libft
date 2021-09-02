@@ -57,13 +57,3 @@ char	*ft_itoa(int n)
 	ft_fillstr(str, n, size);
 	return (str);
 }
-
-// #include <stdio.h>
-// int main()
-// {
-// 	char *str;
-
-// 	str = ft_itoa(-2147483648);
-// 	printf("str: %s", str);
-// 	return (0);
-// }

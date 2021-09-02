@@ -1,9 +1,9 @@
 #include "libft.h"
 
-char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char *new_str;
-	size_t i;
+	char	*new_str;
+	size_t	i;
 
 	if (!s)
 		return (0);
@@ -18,15 +18,3 @@ char *ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	}
 	return (new_str);
 }
-
-// char addOne(unsigned int i, char c) { return (i + c); }
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *str;
-
-// 	str = ft_strmapi("123", addOne);
-// 	printf ("%s\n", str);
-// 	return (0);
-// }

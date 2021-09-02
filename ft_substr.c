@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -27,16 +26,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	return (new_str);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	char *str = "Test if";
-// 	char *new_str;
-
-// 	// new_str = ft_substr(str, 3, 7);
-// 	new_str = ft_substr("tripouille", 100, 1);
-// 	printf("str: %s | new_str: %s\n", str, new_str);
-// 	return (0);
-// }
