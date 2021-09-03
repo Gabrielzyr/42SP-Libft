@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gamonte- <gamonte-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/09/02 21:20:46 by gamonte-          #+#    #+#             */
+/*   Updated: 2021/09/02 21:21:23 by gamonte-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content)
@@ -11,14 +23,3 @@ t_list	*ft_lstnew(void *content)
 	node->next = NULL;
 	return (node);
 }
-
-// #include <stdio.h>
-
-// int main()
-// {
-// 	t_list *ret;
-
-// 	ret = ft_lstnew((void *)42);
-// 	printf("return: %d", (int)ret);
-// 	return (0);
-// }
