@@ -6,7 +6,7 @@
 /*   By: gamonte- <gamonte-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/02 21:18:29 by gamonte-          #+#    #+#             */
-/*   Updated: 2021/09/02 21:18:30 by gamonte-         ###   ########.fr       */
+/*   Updated: 2022/02/10 14:14:04 by gamonte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 int		ft_atoi(const char *nptr);
 int		ft_isascii(int c);
@@ -28,6 +29,7 @@ void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strdup(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strchr(const char *s, int c);
+char	*ft_strchr_no_null(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
@@ -49,6 +51,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+char	*ft_strjoin_free(char *s1, char const *s2);
 
 typedef struct s_list
 {
@@ -65,4 +68,20 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// get_next_line
+# define BUFFER_SIZE 10
+
+char	*ft_substr_free(char *s, unsigned int start, size_t len);
+char	*get_next_line(int fd);
+
+// ft_printf
+int		ft_printf(const char *str, ...);
+int		ft_convert_c(va_list args);
+int		ft_convert_d_i(va_list args);
+int		ft_convert_x(unsigned int unbr, char c);
+int		ft_convert_p(size_t unbr);
+int		ft_convert_s(char *print_str);
+int		ft_convert_u(va_list args);
+int		ft_utoa_print(unsigned int n);
 #endif

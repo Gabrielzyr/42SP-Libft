@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamonte- <gamonte-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 21:22:09 by gamonte-          #+#    #+#             */
-/*   Updated: 2022/02/08 03:30:11 by gamonte-         ###   ########.fr       */
+/*   Created: 2022/02/08 00:29:59 by gamonte-          #+#    #+#             */
+/*   Updated: 2022/02/09 03:20:33 by gamonte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
+#include "libft.h"
 
-	i = 0;
-	while (s[i])
+char	*ft_substr_free(char *s, unsigned int start, size_t len)
+{
+	char	*new_str;
+	size_t	i;
+	size_t	st;
+
+	if (!s)
+		return (0);
+	st = (size_t)start;
+	new_str = malloc((len + 1) * sizeof(char));
+	if (!new_str)
 	{
-		if ((char)c == s[i])
-			return ((char *)&s[i]);
+		free(new_str);
+		return (0);
+	}
+	i = 0;
+	while (i < len && s[st + i])
+	{
+		new_str[i] = s[st + i];
 		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
-	return (0);
+	new_str[i] = '\0';
+	free(s);
+	return (new_str);
 }
