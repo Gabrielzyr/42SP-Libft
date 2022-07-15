@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strchr copy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamonte- <gamonte-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 21:22:09 by gamonte-          #+#    #+#             */
-/*   Updated: 2022/02/08 03:30:11 by gamonte-         ###   ########.fr       */
+/*   Created: 2022/02/08 03:32:09 by gamonte-          #+#    #+#             */
+/*   Updated: 2022/02/08 03:32:24 by gamonte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr_no_null(const char *s, int c)
 {
 	int	i;
 
@@ -21,7 +21,5 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
 	return (0);
 }

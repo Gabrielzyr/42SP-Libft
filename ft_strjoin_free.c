@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gamonte- <gamonte-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/02 21:22:09 by gamonte-          #+#    #+#             */
-/*   Updated: 2022/02/08 03:30:11 by gamonte-         ###   ########.fr       */
+/*   Created: 2021/09/02 21:22:38 by gamonte-          #+#    #+#             */
+/*   Updated: 2021/09/02 21:22:39 by gamonte-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
+#include "libft.h"
 
+char	*ft_strjoin_free(char *s1, char const *s2)
+{
+	char	*new_str;
+	size_t	i;
+	size_t	j;
+
+	new_str = malloc((ft_strlen(s1) + ft_strlen(s2) + 1));
 	i = 0;
-	while (s[i])
+	if (!new_str)
+		return (0);
+	while (s1[i])
 	{
-		if ((char)c == s[i])
-			return ((char *)&s[i]);
+		new_str[i] = s1[i];
 		i++;
 	}
-	if ((char)c == '\0')
-		return ((char *)&s[i]);
-	return (0);
+	j = 0;
+	while (s2[j])
+	{
+		new_str[i + j] = s2[j];
+		j++;
+	}
+	new_str[i + j] = '\0';
+	free(s1);
+	return (new_str);
 }
